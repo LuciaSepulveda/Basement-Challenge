@@ -1,0 +1,20 @@
+[
+  {
+    "id": "Black t-shirt",
+    "name": "Black t-shirt",
+    "description": "Unisex Basic Softstyle T-Shirt",
+    "price": 7.95
+  },
+  {
+    "id": "Black hoodie",
+    "name": "Black hoodie",
+    "description": "Unisex Basic Softstyle Hoodie",
+    "price": 13
+  },
+  {
+    "id": "Black cap",
+    "name": "Black cap",
+    "description": "Basic Softstyle Cap",
+    "price": 23
+  }
+]

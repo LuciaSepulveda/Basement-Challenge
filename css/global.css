@@ -25,3 +25,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#TextBorderWhite {
+  -webkit-text-stroke: 0.8px white;
+}
+
+#TextBorderBlack {
+  -webkit-text-stroke: 1px black;
+}
