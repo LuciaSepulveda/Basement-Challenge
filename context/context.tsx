@@ -35,14 +35,18 @@ const UserProvider: React.FC = ({children}) => {
     if (status === "loading") {
       let carrito
 
-      carrito = JSON.parse(localStorage.getItem("Cart") || "{}")
+      let check = localStorage.getItem("Cart")
 
-      if (carrito !== {} && carrito !== null) {
-        let array: Buy[] = carrito.products
+      if (check !== null) {
+        carrito = JSON.parse(localStorage.getItem("Cart") || "{}")
 
-        for (let i = 0; i !== array.length; i++) {
-          if (array[i].count !== 0) {
-            products.push(array[i])
+        if (carrito !== {} && carrito !== null) {
+          let array: Buy[] = carrito.products
+
+          for (let i = 0; i !== array.length; i++) {
+            if (array[i].count !== 0) {
+              products.push(array[i])
+            }
           }
         }
       } else {
