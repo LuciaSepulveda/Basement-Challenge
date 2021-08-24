@@ -45,7 +45,7 @@ module.exports = {
         sizeMobile: "19px",
         textHeader: "57px",
         yourCartMobile: "214px",
-        backBlack: "170vh",
+        backBlack: "180vh",
         backBlackMd: "125vh",
       },
       maxHeight: {
@@ -114,8 +114,12 @@ module.exports = {
           "100%": {transform: "translateX(-715px)"},
         },
         cart: {
-          "0%": {transform: "scale(0)"},
-          "100%": {transform: "Scale(1)"},
+          "0%": {transform: "translateY(-200px)"},
+          "100%": {transform: "translateY(0px)"},
+        },
+        background: {
+          "0%": {transform: "opacity(0)"},
+          "100%": {transform: "opacity(1)"},
         },
         textMobile: {
           "0%": {transform: "translateX(0px)"},
@@ -126,7 +130,8 @@ module.exports = {
         spinner: "spinner 2s ease-in-out infinite",
         text: "text 5s ease-in-out infinite",
         textMobile: "textMobile 5s ease-in-out infinite",
-        cart: "cart 0.5s ease-in",
+        cart: "cart 0.2s ease-in",
+        background: "background 0.5s ease-in-out",
       },
     },
   },

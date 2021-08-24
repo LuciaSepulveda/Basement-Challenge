@@ -16,7 +16,7 @@ const Home: NextPage = () => {
     <div className="flex flex-col m-auto">
       {cartOpen && !isPortrait && (
         <>
-          <div className="bg-black absolute w-full h-backBlackMd xl:h-backBlack z-20 opacity-70 transition-all" />
+          <div className="bg-black absolute w-full h-backBlackMd xl:h-backBlack z-20 opacity-70" />
           <Header />
           <Body products={data} />
           <Footer />

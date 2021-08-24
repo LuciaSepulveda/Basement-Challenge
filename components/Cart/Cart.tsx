@@ -14,7 +14,6 @@ import cap from "../../public/products/cap.png"
 import hoodie from "../../public/products/hoodie.png"
 import yourCart from "../../public/yourCart.svg"
 import yourCartMobile from "../../public/yourCartMobile.svg"
-import addToCart from "../../public/addToCart.svg"
 import Spinner from "../Spinner"
 import {Size, sizesShirt, sizesHoodie, sizesCap} from "../../product/types"
 
@@ -28,7 +27,6 @@ const Cart: React.FC<Props> = ({closeCart}) => {
   const cart = useCart()
   const addProductCart = useAddProductCart()
   const removeProductCart = useRemoveProductCart()
-  const removeAllProducts = useRemoveAllProducts()
   const total = useTotal()
   const [update, setUpdate] = React.useState<boolean>(false)
   const [textCart, setTextCart] = React.useState<string>("Cart is empty")
@@ -37,11 +35,6 @@ const Cart: React.FC<Props> = ({closeCart}) => {
 
   let sizes: Size[] = sizesCap
 
-  const saveCartLocalStorage = () => {
-    localStorage.setItem("Cart", JSON.stringify(cart))
-    setUpdate(true)
-  }
-
   React.useEffect(() => {
     if (update === true) {
       setUpdate(false)
@@ -49,7 +42,7 @@ const Cart: React.FC<Props> = ({closeCart}) => {
   }, [update])
 
   return (
-    <div className="flex flex-col md:border-l-2 absolute top-0 -right-0 z-20 min-h-full w-screen md:w-cart md:min-h-cart bg-black animate-cart transition-all">
+    <div className="flex flex-col md:border-l-2 absolute top-0 -right-0 z-20 min-h-full w-screen md:w-cart md:min-h-cart bg-black md:animate-cart">
       <div className="flex flex-row-reverse mr-4 mt-4 mb-4">
         <button className="text-closeMobile md:text-close mr-4" onClick={closeCart}>
           &rarr; CLOSE
@@ -159,24 +152,12 @@ const Cart: React.FC<Props> = ({closeCart}) => {
         </div>
         {isPortrait && <div className="bg-white w-11/12 h-px m-auto" />}
         <div className="flex-1 md:border-2">
-          {cart.products.length !== 0 && (
-            <button onClick={() => saveCartLocalStorage()}>
-              <p
-                className="text-black mt-2 md:mt-0 ml-2 text-center text-checkoutMobile md:text-total leading-total tracking-total"
-                id="TextBorderWhite"
-              >
-                CHECKOUT
-              </p>
-            </button>
-          )}
-          {cart.products.length === 0 && (
-            <p
-              className="text-black mt-2 md:mt-0 ml-2 text-center text-checkoutMobile md:text-total leading-total tracking-total"
-              id="TextBorderWhite"
-            >
-              CHECKOUT
-            </p>
-          )}
+          <p
+            className="text-black mt-2 md:mt-0 ml-2 text-center text-checkoutMobile md:text-total leading-total tracking-total"
+            id="TextBorderWhite"
+          >
+            CHECKOUT
+          </p>
         </div>
       </div>
     </div>

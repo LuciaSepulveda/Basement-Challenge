@@ -37,19 +37,15 @@ const UserProvider: React.FC = ({children}) => {
 
       carrito = JSON.parse(localStorage.getItem("Cart") || "{}")
 
-      if (carrito !== {} || carrito !== null) {
+      if (carrito !== {} && carrito !== null) {
         let array: Buy[] = carrito.products
 
         for (let i = 0; i !== array.length; i++) {
           if (array[i].count !== 0) {
-            setCountProducts(countProducts + array[i].count)
-            setTotal(total + array[i].count * array[i].product.price)
             products.push(array[i])
           }
         }
-      }
-
-      if (carrito === null) {
+      } else {
         setProducts([])
       }
 
@@ -115,6 +111,19 @@ const UserProvider: React.FC = ({children}) => {
   }
 
   if (status === Status.update) {
+    let array = cart.products
+    let count = 0
+    let totalAux = 0
+
+    for (let i = 0; i !== array.length; i++) {
+      if (array[i].count !== 0) {
+        count = count + array[i].count
+        totalAux = totalAux + array[i].count * array[i].product.price
+      }
+    }
+
+    setCountProducts(count)
+    setTotal(totalAux)
     setStatus(Status.ready)
   }
 
