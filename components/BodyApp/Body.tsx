@@ -11,7 +11,7 @@ interface Props {
 
 const Body: NextPage<Props> = ({products}) => {
   return (
-    <div className="flex flex-col md:flex-row max-w-11/12 justify-center items-center mx-auto md:my-20">
+    <div className="flex flex-col md:flex-row max-w-11/12 justify-center items-center mx-auto md:my-20 max-w-screen-2xl">
       {products.map((product) => (
         <ProductA key={product.id} product={product} />
       ))}

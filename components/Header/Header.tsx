@@ -18,11 +18,11 @@ const Header = () => {
 
   const isPortrait = useMediaQuery({query: "(orientation: portrait)"})
 
-  const text = `A man can't have enough basement. swag — A man can't have enough basement. swag — A man can't have enough basement. swag — A man can't have enough basement. swag —`
+  const text = `A man can't have enough basement. swag — A man can't have enough basement. swag — A man can't have enough basement. swag — A man can't have enough basement. swag — A man can't have enough basement. swag`
 
   return (
     <header className="flex flex-col text-white text-center">
-      <div className="flex flex-row m-auto md:p-4 justify-center items-center xl:w-9/12 w-full">
+      <div className="flex flex-row m-auto md:p-4 justify-center items-center xl:w-9/12 w-full max-w-screen-2xl">
         <div className="flex-1 flex p-2 xl:ml-1 content-start">
           {isPortrait && <Image alt="logo" height="50px" src={icon} width="50px" />}
           {!isPortrait && <Image alt="logo" src={logo} />}
@@ -42,7 +42,7 @@ const Header = () => {
           {cartOpen && <Cart closeCart={() => changeOpenCart()} />}
         </div>
       </div>
-      <div className="relative m-auto xl:w-9/12 w-full">
+      <div className="relative m-auto xl:w-9/12 w-full max-w-screen-2xl">
         <div className="absolute invisible md:visible -bottom-32 left-6">
           <Image alt="" height="100px" src={vector1} width="100px" />
         </div>
