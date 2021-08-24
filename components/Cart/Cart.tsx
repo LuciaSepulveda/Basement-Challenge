@@ -15,7 +15,7 @@ import hoodie from "../../public/products/hoodie.png"
 import yourCart from "../../public/yourCart.svg"
 import yourCartMobile from "../../public/yourCartMobile.svg"
 import Spinner from "../Spinner"
-import {Size, sizesShirt, sizesHoodie, sizesCap} from "../../product/types"
+import {Size, sizesShirt, sizesHoodie, sizesCap, Buy} from "../../product/types"
 
 import Sizes from "./Sizes"
 
@@ -27,6 +27,7 @@ const Cart: React.FC<Props> = ({closeCart}) => {
   const cart = useCart()
   const addProductCart = useAddProductCart()
   const removeProductCart = useRemoveProductCart()
+  const removeAllProducts = useRemoveAllProducts()
   const total = useTotal()
   const [update, setUpdate] = React.useState<boolean>(false)
   const [textCart, setTextCart] = React.useState<string>("Cart is empty")
@@ -34,6 +35,20 @@ const Cart: React.FC<Props> = ({closeCart}) => {
   const isPortrait = useMediaQuery({query: "(orientation: portrait)"})
 
   let sizes: Size[] = sizesCap
+
+  const printCart = () => {
+    let text = ""
+
+    const array: Buy[] = cart.products
+
+    array.forEach((elem) => {
+      text = text + elem.product.name + " x " + elem.count + " "
+    })
+
+    console.log(text)
+    removeAllProducts()
+    setUpdate(true)
+  }
 
   React.useEffect(() => {
     if (update === true) {
@@ -152,12 +167,14 @@ const Cart: React.FC<Props> = ({closeCart}) => {
         </div>
         {isPortrait && <div className="bg-white w-11/12 h-px m-auto" />}
         <div className="flex-1 md:border-2">
-          <p
-            className="text-black mt-2 md:mt-0 ml-2 text-center text-checkoutMobile md:text-total leading-total tracking-total"
-            id="TextBorderWhite"
-          >
-            CHECKOUT
-          </p>
+          <button onClick={() => printCart()}>
+            <p
+              className="text-black mt-2 md:mt-0 ml-2 text-center text-checkoutMobile md:text-total leading-total tracking-total"
+              id="TextBorderWhite"
+            >
+              CHECKOUT
+            </p>
+          </button>
         </div>
       </div>
     </div>

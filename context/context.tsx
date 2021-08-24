@@ -27,7 +27,7 @@ const UserProvider: React.FC = ({children}) => {
   const [countProducts, setCountProducts] = React.useState<number>(0)
   const [total, setTotal] = React.useState<number>(0)
   const [cartOpen, setCartOpen] = React.useState<boolean>(false)
-  const cart: Cart = {
+  let cart: Cart = {
     products: products,
   }
 
@@ -110,8 +110,10 @@ const UserProvider: React.FC = ({children}) => {
     setProducts([])
     setCountProducts(0)
     setTotal(0)
-    saveCartLocalStorage()
-    setStatus(Status.update)
+    cart = {products: products}
+    localStorage.removeItem("Cart")
+    localStorage.clear()
+    setStatus(Status.loading)
   }
 
   if (status === Status.update) {
