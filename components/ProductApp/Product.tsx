@@ -36,24 +36,27 @@ const ProductApp: NextPage<Props> = ({product}) => {
     >
       <div className="flex flex-col justify-center items-center mx-2 relative bg-blend-multiply">
         {onHover && (
-          <div className="absolute max-w-product max-h-product">
-            <button className="max-w-addCart z-10" onClick={() => addProductCart(product)}>
-              <div className="w-60 h-addCart z-10">
-                <div className="z-20 absolute bottom-12 filter drop-shadow-image">
-                  <Image alt="Text add to cart" src={addToCart} />
+          <>
+            <div className="absolute w-full h-full -top-11 bg-black opacity-50 z-10" />
+            <div className="absolute max-w-product max-h-product">
+              <button className="max-w-addCart z-20" onClick={() => addProductCart(product)}>
+                <div className="w-60 h-addCart z-20">
+                  <div className="z-30 absolute bottom-12 filter drop-shadow-image">
+                    <Image alt="Text add to cart" src={addToCart} />
+                  </div>
+                  <div className="absolute left-1/4">
+                    <Image
+                      alt="Logo add to cart"
+                      className="z-20"
+                      height="125px"
+                      src={addCart}
+                      width="125px"
+                    />
+                  </div>
                 </div>
-                <div className="absolute left-1/4">
-                  <Image
-                    alt="Logo add to cart"
-                    className="z-10"
-                    height="125px"
-                    src={addCart}
-                    width="125px"
-                  />
-                </div>
-              </div>
-            </button>
-          </div>
+              </button>
+            </div>
+          </>
         )}
         <div className="max-w-image max-h-image bg-productGradient">
           <Image

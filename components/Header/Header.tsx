@@ -43,7 +43,7 @@ const Header = () => {
         </div>
       </div>
       <div className="relative m-auto xl:w-9/12 w-full max-w-screen-2xl">
-        <div className="absolute invisible md:visible -bottom-32 left-6">
+        <div className="absolute invisible md:visible z-20 -bottom-32 left-6">
           <Image alt="" height="100px" src={vector1} width="100px" />
         </div>
         <Image alt="Header Basement Supply" src={header} />
