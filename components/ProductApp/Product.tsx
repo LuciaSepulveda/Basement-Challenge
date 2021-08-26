@@ -35,16 +35,19 @@ const ProductApp: NextPage<Props> = ({product}) => {
       onMouseLeave={() => setOnHover(false)}
     >
       <div className="flex flex-col justify-center items-center mx-2 relative bg-blend-multiply">
-        {onHover && (
-          <>
-            <div className="absolute w-full h-full -top-11 bg-black opacity-50 z-10" />
-            <div className="absolute max-w-product max-h-product">
-              <button className="max-w-addCart z-20" onClick={() => addProductCart(product)}>
-                <div className="w-60 h-addCart z-20">
-                  <div className="z-30 absolute bottom-12 filter drop-shadow-image">
+        <div className="max-w-image max-h-image bg-productGradient relative">
+          {onHover && (
+            <>
+              <div className="absolute w-full h-full bg-black opacity-50 z-10" />
+              <div className="absolute h-full w-full z-20 ">
+                <button
+                  className="w-full z-20 relative top-1/2"
+                  onClick={() => addProductCart(product)}
+                >
+                  <div className="z-30 filter drop-shadow-image absolute top-1/2 left-2 right-2">
                     <Image alt="Text add to cart" src={addToCart} />
                   </div>
-                  <div className="absolute left-1/4">
+                  <div className="z-20 absolute -top-14 left-2 right-2">
                     <Image
                       alt="Logo add to cart"
                       className="z-20"
@@ -53,12 +56,10 @@ const ProductApp: NextPage<Props> = ({product}) => {
                       width="125px"
                     />
                   </div>
-                </div>
-              </button>
-            </div>
-          </>
-        )}
-        <div className="max-w-image max-h-image bg-productGradient">
+                </button>
+              </div>
+            </>
+          )}
           <Image
             alt="black"
             className="absolute w-20 filter drop-shadow-image"
